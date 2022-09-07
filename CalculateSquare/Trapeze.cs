@@ -21,9 +21,9 @@ public class Trapeze : IFigure
     public Trapeze(int a, int b, int c, int d)
     {
         if (a <= 0 || b <= 0 || c <= 0 || d<=0)
-            throw new Exception("Sides is negative");
+            throw new ArgumentException("Sides is negative");
         if (Math.Abs(a - b) > c + d || c > Math.Abs(a - b) + d || d > Math.Abs(a - b) + c)
-            throw new Exception("Trapeze is degenerate");
+            throw new ArgumentException("Trapeze is degenerate");
         _sides = new int[] { a, b, c, d };
         _h = CalculateH();
     }
@@ -31,7 +31,7 @@ public class Trapeze : IFigure
     public Trapeze(int a, int b, int h)
     {
         if (a <= 0 || b <= 0 || h <= 0)
-            throw new Exception("Sides is negative");
+            throw new ArgumentException("Sides is negative");
         _sides = new int[] { a, b };
         _h = h;
     }

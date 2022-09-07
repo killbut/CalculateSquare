@@ -1,16 +1,16 @@
 ﻿namespace CalculateSquare;
 
-public class Rectangle : IFigure
+public class Triangle : IFigure
 {
     private readonly int[] _sides;
     public int[] Sides => _sides;
     
-    public Rectangle(int a, int b, int c)
+    public Triangle(int a, int b, int c)
     {
         if (a <= 0 || b <= 0 || c <= 0)
-            throw new Exception("Sides is negative");
-        if (a + b < c || a + c < b || b + c < a)
-            throw new Exception("Triangle is degenerate");
+            throw new ArgumentException("Sides is negative");
+        if (a + b == c || a + c == b || b + c == a)
+            throw new ArgumentException("Triangle is degenerate");
         _sides = new int[] { a, b, c };
     }
 
